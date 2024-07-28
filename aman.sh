@@ -27,7 +27,6 @@ echo "Lock.sol removed."
 echo "Hardhat project created."
 echo "Installing Hardhat toolbox..."
 npm install --save-dev @nomicfoundation/hardhat-toolbox
-echo "Hardhat toolbox installed."
 
 # Create .env file for private key
 echo "Creating .env file..."
@@ -112,14 +111,7 @@ echo "Creating setMessage.js script..."
 cat <<EOL > scripts/setMessage.js
 const hre = require("hardhat");
 const { encryptDataField, decryptNodeResponse } = require("@swisstronik/utils");
-
-const sendShieldedTransaction = async (signer, destination, data, value) => {
-  const rpclink = hre.network.config.url;
-  const [encryptedData] = await encryptDataField(rpclink, data);
-  return await signer.sendTransaction({
-    from: signer.address,
-    to: destination,
-    data: encryptedData,
+xuhshu 
     value,
   });
 };
